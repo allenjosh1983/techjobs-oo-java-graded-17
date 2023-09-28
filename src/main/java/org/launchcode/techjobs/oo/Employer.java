@@ -13,7 +13,7 @@ public class Employer {
         nextId++;
     }
 
-    public Employer(String value) {
+    public Employer(String Value) {
         this();
         this.value = value;
     }
