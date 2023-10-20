@@ -12,8 +12,33 @@ public class Job {
     private Location location;
     private PositionType positionType;
     private CoreCompetency coreCompetency;
+public Job() {
 
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
+    id = nextId++;
+
+}
+public Job(String name1,Employer employer1,Location location1, PositionType positionType1, CoreCompetency coreCompetency1) {
+    this();
+    name = name1;
+    employer = employer1;
+    location = location1;
+    positionType = positionType1;
+    coreCompetency = coreCompetency1;
+}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+// TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
 
