@@ -2,9 +2,22 @@ package org.launchcode.techjobs.oo;
 
 import org.junit.Test;
 
+import javax.naming.Name;
+
 import static org.junit.Assert.*;
 
 public class JobTest {
+    Job job1 =  new Job("Developer",
+            new Employer("ACME"),
+            new Location("Desert"),
+            new PositionType("Quality control"),
+            new CoreCompetency("Persistence"));
+    Job job2 =  new Job("Instructor",
+            new Employer("ACME"),
+            new Location("Desert"),
+            new PositionType("Quality control"),
+            new CoreCompetency("Persistence"));
+
     //TODO: Create your unit tests here
     @Test
     public void testSettingJobId() {
@@ -38,4 +51,15 @@ public class JobTest {
         Job job2 = new Job();
         assertFalse(job1.equals(job2));
     }
+@Test
+    public void testToStringStartsAndEndsWithNewLine() {
+
+    System.out.println(job1.toString() + job2.toString());
 }
+@Test
+    public void testToStringContainsCorrectLabelsAndData () {
+    System.out.println(job1.toString() + job2.toString());
+}
+}
+
+

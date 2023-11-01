@@ -17,13 +17,13 @@ public Job() {
     id = nextId++;
 
 }
-public Job(String name1,Employer employer1,Location location1, PositionType positionType1, CoreCompetency coreCompetency1) {
+public Job(String name,Employer employer,Location location, PositionType positionType, CoreCompetency coreCompetency) {
     this();
-    name = name1;
-    employer = employer1;
-    location = location1;
-    positionType = positionType1;
-    coreCompetency = coreCompetency1;
+    this.name = name;
+    this.employer = employer;
+    this.location = location;
+    this.positionType = positionType;
+    this.coreCompetency = coreCompetency;
 }
 
     @Override
@@ -85,6 +85,22 @@ public Job(String name1,Employer employer1,Location location1, PositionType posi
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    public String toString(){
+    String id = "Id: " + getId();
+    String name = "Name: " + getName();
+    String employer = "Employer: " + getEmployer();
+    String location = "Location: " + getLocation();
+    String positionType = "Position Type: " + getPositionType();
+    String coreCompetency = "Core Competency: " + getCoreCompetency();
+    return System.lineSeparator() + id+ System.lineSeparator() +
+            name + System.lineSeparator()+
+            employer + System.lineSeparator()+
+            location + System.lineSeparator()+
+            positionType + System.lineSeparator()+
+            coreCompetency + System.lineSeparator()
+            ;
     }
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
