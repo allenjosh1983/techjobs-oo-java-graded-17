@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+
+
 public class Job {
 
     private int id;
@@ -87,18 +89,23 @@ public Job(String name,Employer employer,Location location, PositionType positio
         this.coreCompetency = coreCompetency;
     }
 
+    //use setter to changes values to data not available if they are empty strings
+    @Override
     public String toString(){
-    String id = "Id: " + getId();
-    String name = "Name: " + getName();
-    String employer = "Employer: " + getEmployer();
-    String location = "Location: " + getLocation();
-    String positionType = "Position Type: " + getPositionType();
-    String coreCompetency = "Core Competency: " + getCoreCompetency();
-    return System.lineSeparator() + id+ System.lineSeparator() +
+    String id = "ID: " + getId();
+    String name = "Name: " +  (this.getName().isEmpty()? "Data not available" : this.getName());
+    String employer = "Employer: " +  (this.getEmployer().getValue().isEmpty()? "Data not available" : this.getEmployer().getValue());
+    String location = "Location: " +  (this.getLocation().getValue().isEmpty()? "Data not available" : this.getLocation().getValue());
+    String positionType = "Position Type: " +  (this.getPositionType().getValue().isEmpty()? "Data not available" : this.getPositionType().getValue());
+    String coreCompetency = "Core Competency: " +  (this.getCoreCompetency().getValue().isEmpty()? "Data not available" : this.getCoreCompetency().getValue());
+
+
+
+    return System.lineSeparator() + id +System.lineSeparator() +
             name + System.lineSeparator()+
-            employer + System.lineSeparator()+
-            location + System.lineSeparator()+
-            positionType + System.lineSeparator()+
+            employer +  System.lineSeparator()+
+            location +  System.lineSeparator()+
+            positionType +  System.lineSeparator()+
             coreCompetency + System.lineSeparator()
             ;
     }

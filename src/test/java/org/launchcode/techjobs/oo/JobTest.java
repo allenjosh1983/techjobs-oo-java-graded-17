@@ -53,13 +53,41 @@ public class JobTest {
     }
 @Test
     public void testToStringStartsAndEndsWithNewLine() {
-
-    System.out.println(job1.toString() + job2.toString());
+String expected = job1.toString();
+assertTrue(expected.startsWith(System.lineSeparator()));
+assertTrue(expected.endsWith(System.lineSeparator()));
+    //System.out.println(job1.toString() + job2.toString());
 }
 @Test
     public void testToStringContainsCorrectLabelsAndData () {
-    System.out.println(job1.toString() + job2.toString());
+        String expected = System.lineSeparator()+"ID: " + job1.getId()+ System.lineSeparator()+
+                "Name: " + job1.getName()+System.lineSeparator()+
+                "Employer: " + job1.getEmployer()+System.lineSeparator()+
+                "Location: " + job1.getLocation()+System.lineSeparator()+
+                "Position Type: " + job1.getPositionType()+System.lineSeparator()+
+                "Core Competency: " + job1.getCoreCompetency()+System.lineSeparator();
+        String output = job1.toString();
+    System.out.println(expected);
+    System.out.println(output);
+    //System.out.println(job1.toString());
+    assertEquals(expected,output);
 }
+@Test
+    public void testToStringHandlesEmptyField() {
+        Job job3 = new Job("",
+            new Employer("ACME"),
+            new Location(""),
+            new PositionType("Quality control"),
+            new CoreCompetency(""));;
+    String expected = System.lineSeparator()+"ID: " + job3.getId()+ System.lineSeparator()+
+            "Name: Data not available"+System.lineSeparator()+
+            "Employer: " + job3.getEmployer()+System.lineSeparator()+
+            "Location: Data not available"+System.lineSeparator()+
+            "Position Type: " + job3.getPositionType()+System.lineSeparator()+
+            "Core Competency: Data not available"+System.lineSeparator();
+assertEquals(expected, job3.toString());
+}
+
 }
 
 
